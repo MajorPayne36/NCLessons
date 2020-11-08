@@ -4,7 +4,7 @@ import com.Lesson1.Clients.Client;
 
 import java.time.LocalDateTime;
 
-abstract class BasicContract {
+public abstract class BasicContract implements Comparable<BasicContract> {
     private final String contractType;
     private final Integer contractId;
     private final LocalDateTime startDateTime;
@@ -47,5 +47,10 @@ abstract class BasicContract {
 
     public LocalDateTime getStartDateTime() {
         return startDateTime;
+    }
+
+    @Override
+    public int compareTo(BasicContract o) {
+        return this.getContractNumber() - o.getContractNumber();
     }
 }
