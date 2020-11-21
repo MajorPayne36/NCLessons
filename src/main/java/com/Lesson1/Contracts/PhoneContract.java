@@ -9,8 +9,8 @@ public class PhoneContract extends BasicContract {
     private final int internetCount;
 
 
-    public PhoneContract(int smsCount, int minuteCount, int internetCount, int contractId, Client client) {
-        super(contractId, client, "PhoneContract");
+    public PhoneContract(int smsCount, int minuteCount, int internetCount, Client client) {
+        super(client);
         this.internetCount = internetCount;
         this.minuteCount = minuteCount;
         this.smsCount = smsCount;

@@ -9,8 +9,8 @@ public class DigitalTVContract extends BasicContract {
 
 
 
-    public DigitalTVContract(Client client, TVPackages tvPackage, int contractId) {
-        super(contractId, client, "DigitalTVContract");
+    public DigitalTVContract(Client client, TVPackages tvPackage) {
+        super(client);
         this.tvPackage = tvPackage;
 
     }

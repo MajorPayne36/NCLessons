@@ -53,35 +53,22 @@ public class Contracts {
         throw new ContractException();
     }
 
-    public void addContract(Object contract, String contractType) throws SimilarClientsException {
+    public void addContract(BasicContract contract) throws SimilarClientsException {
 
         // If didn't find the same client, program add new client to others
-        if (!clients.findClientWithPass((((BasicContract) contract).getClient().getPassSeries()),
-                (((BasicContract) contract).getClient().getPassNumber())))
-            clients.addClient(((BasicContract) contract).getClient());
+        if (!clients.findClientWithPass((contract.getClient().getPassSeries()),
+                (contract.getClient().getPassNumber())))
+            clients.addClient(contract.getClient());
 
         // If contracts array is full, we increase him
         if (ArayUtil.arrayIsFull(this.contracts)) contracts = (BasicContract[]) ArayUtil.increaseArray(contracts);
 
         ++lastContractNumber;
-        contracts[ArayUtil.getArrayValuesCount(contracts)] = (BasicContract) contract;
-        switch (contractType) {
-            case ("DigitalTVContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (DigitalTVContract) contract;
-                ((DigitalTVContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-            case ("PhoneContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (PhoneContract) contract;
-                ((PhoneContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-            case ("WiredInternetContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (WiredInternetContract) contract;
-                ((WiredInternetContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-        }
+        contracts[ArayUtil.getArrayValuesCount(contracts)] = contract;
+
+        contracts[ArayUtil.getArrayValuesCount(contracts)] = contract;
+        contract.setContractNumber(lastContractNumber);
+        ++lastContractNumber;
     }
 
     /**
@@ -124,10 +111,21 @@ public class Contracts {
         Contracts c = new Contracts(this.clients);
         for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts); i++) {
             if (p.test(contracts[i])) {
-                c.addContract(contracts[i],contracts[i].getContractType());
+                c.addContract(contracts[i]);
             }
         }
         return c;
+    }
+
+    public void sort() {
+        for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts) - 1; i++) {
+            // внутренний цикл прохода
+            for (int j = ArayUtil.getArrayValuesCount(contracts) - 1; j > i; j--) {
+                if (contracts[j - 1].compareTo(contracts[j]) > 0) {
+                    ArayUtil.swap(j - 1, j, contracts);
+                }
+            }
+        }
     }
 
 }

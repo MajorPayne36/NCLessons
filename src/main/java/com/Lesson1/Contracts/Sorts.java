@@ -28,6 +28,6 @@ class SortByStartDate implements Comparator<BasicContract> {
 class SortByContractType implements Comparator<BasicContract> {
     @Override
     public int compare(BasicContract o1, BasicContract o2) {
-        return o1.getContractType().compareTo(o2.getContractType());
+        return o1.getClass().getSimpleName().compareTo(o2.getClass().getSimpleName());
     }
 }
