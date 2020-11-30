@@ -3,6 +3,8 @@ package com.Lesson1.Contracts;
 import com.Lesson1.ArayUtil;
 import com.Lesson1.Clients.Clients;
 import com.Lesson1.Clients.SimilarClientsException;
+import com.Lesson1.Sorters.BubbleSorter;
+import com.Lesson1.Sorters.ShellSorter;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -128,4 +130,11 @@ public class Contracts {
         }
     }
 
+    public void sortBubble (Comparator c){
+        new BubbleSorter().sort(c, this);
+    }
+
+    public void sortShell (Comparator c){
+        new ShellSorter().sort(c, this);
+    }
 }
