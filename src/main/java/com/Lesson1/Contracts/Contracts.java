@@ -21,6 +21,9 @@ public class Contracts {
         this.clients = clients;
     }
 
+    public BasicContract[] getContracts() {
+        return contracts;
+    }
 
     /**
      * This method find Contract by his Number and delete him
@@ -50,35 +53,22 @@ public class Contracts {
         throw new ContractException();
     }
 
-    public void addContract(Object contract, String contractType) throws SimilarClientsException {
+    public void addContract(BasicContract contract) throws SimilarClientsException {
 
         // If didn't find the same client, program add new client to others
-        if (!clients.findClientWithPass((((BasicContract) contract).getClient().getPassSeries()),
-                (((BasicContract) contract).getClient().getPassNumber())))
-            clients.addClient(((BasicContract) contract).getClient());
+        if (!clients.findClientWithPass((contract.getClient().getPassSeries()),
+                (contract.getClient().getPassNumber())))
+            clients.addClient(contract.getClient());
 
         // If contracts array is full, we increase him
         if (ArayUtil.arrayIsFull(this.contracts)) contracts = (BasicContract[]) ArayUtil.increaseArray(contracts);
 
         ++lastContractNumber;
-        contracts[ArayUtil.getArrayValuesCount(contracts)] = (BasicContract) contract;
-        switch (contractType) {
-            case ("DigitalTVContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (DigitalTVContract) contract;
-                ((DigitalTVContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-            case ("PhoneContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (PhoneContract) contract;
-                ((PhoneContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-            case ("WiredInternetContract"):
-                contracts[ArayUtil.getArrayValuesCount(contracts)] = (WiredInternetContract) contract;
-                ((WiredInternetContract) contract).setContractNumber(lastContractNumber);
-                ++lastContractNumber;
-                break;
-        }
+        contracts[ArayUtil.getArrayValuesCount(contracts)] = contract;
+
+        contracts[ArayUtil.getArrayValuesCount(contracts)] = contract;
+        contract.setContractNumber(lastContractNumber);
+        ++lastContractNumber;
     }
 
     /**
@@ -104,5 +94,9 @@ public class Contracts {
             if (contract.getContractNumber() == number) return contract;
         }
         return null;
+    }
+
+    public int getContractsCount() {
+        return ArayUtil.getArrayValuesCount(contracts);
     }
 }
