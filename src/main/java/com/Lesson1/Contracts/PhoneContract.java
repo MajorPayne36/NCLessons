@@ -2,6 +2,8 @@ package com.Lesson1.Contracts;
 
 import com.Lesson1.Clients.Client;
 
+import java.time.LocalDateTime;
+
 public class PhoneContract extends BasicContract {
 
     private final int smsCount;
@@ -9,8 +11,8 @@ public class PhoneContract extends BasicContract {
     private final int internetCount;
 
 
-    public PhoneContract(int smsCount, int minuteCount, int internetCount, int contractId, Client client) {
-        super(contractId, client, "PhoneContract");
+    public PhoneContract(int smsCount, int minuteCount, int internetCount, Client client, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        super(client, startDateTime, endDateTime);
         this.internetCount = internetCount;
         this.minuteCount = minuteCount;
         this.smsCount = smsCount;

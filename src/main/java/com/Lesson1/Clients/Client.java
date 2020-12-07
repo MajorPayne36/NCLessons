@@ -12,14 +12,13 @@ public class Client {
     private final int passNumber;
     private final String gender;
 
-    public Client(int id,
+    public Client(
                   String firstName,
                   String secondName,
                   LocalDateTime birthday,
                   int passSeries,
                   int passNumber,
                   String gender) {
-        this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.birthday = birthday;

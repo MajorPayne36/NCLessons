@@ -35,7 +35,7 @@ public class Clients {
             throw new SimilarClientsException("There is a client with same passport data");
         }
 
-        client = new Client(ArayUtil.getArrayValuesCount(clients) + 1, firstName, secondName, birthday, passSeries, passNumber, gender);
+        client = new Client(firstName, secondName, birthday, passSeries, passNumber, gender);
 
         if (arrayIsFull()) clients = (Client[]) ArayUtil.increaseArray(clients);
 
@@ -105,9 +105,11 @@ public class Clients {
      * @return
      */
     public boolean findClientWithPass(int passSeries, int passNumber) {
-        for (Client client : clients) {
-            if (client.getPassNumber() == passNumber
-                    && client.getPassSeries() == passSeries) return true;
+        int clientsCount = ArayUtil.getArrayValuesCount(clients);
+        if (clientsCount == 0) return false;
+        for (int i = 0; i < clientsCount; i++) {
+            if (clients[i].getPassNumber() == passNumber
+                    && clients[i].getPassSeries() == passSeries) return true;
         }
         return false;
     }

@@ -5,20 +5,16 @@ import com.Lesson1.Clients.Client;
 import java.time.LocalDateTime;
 
 public abstract class BasicContract implements Comparable<BasicContract> {
-    private final String contractType;
-    private final Integer contractId;
     private final LocalDateTime startDateTime;
     private final LocalDateTime endDateTime;
     private final Client client;
     private int contractNumber;
 
 
-    protected BasicContract(int contractId, Client client, String contractType) {
-        this.contractType = contractType;
+    protected BasicContract( Client client, LocalDateTime startDateTime, LocalDateTime endDateTime) {
         this.client = client;
-        this.contractId = contractId;
-        this.startDateTime = LocalDateTime.now();
-        this.endDateTime = this.startDateTime.plusYears(1);
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
     }
 
     public void setContractNumber(int contractNumber) {
@@ -29,16 +25,8 @@ public abstract class BasicContract implements Comparable<BasicContract> {
         return contractNumber;
     }
 
-    public String getContractType() {
-        return contractType;
-    }
-
     public Client getClient() {
         return client;
-    }
-
-    public Integer getContractId() {
-        return contractId;
     }
 
     public LocalDateTime getEndDateTime() {
