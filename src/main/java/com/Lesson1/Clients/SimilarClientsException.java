@@ -19,7 +19,7 @@ public class SimilarClientsException extends Exception {
         super(message);
     }
 
-    public SimilarClientsException(String message, int passNumber, int passSeries) {
+    public SimilarClientsException(String message, int passSeries, int passNumber) {
         super(message);
         this.passNumber = passNumber;
         this.passSeries = passSeries;

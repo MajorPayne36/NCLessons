@@ -13,12 +13,12 @@ public class Client {
     private final String gender;
 
     public Client(
-                  String firstName,
-                  String secondName,
-                  LocalDateTime birthday,
-                  int passSeries,
-                  int passNumber,
-                  String gender) {
+            String firstName,
+            String secondName,
+            LocalDateTime birthday,
+            int passSeries,
+            int passNumber,
+            String gender) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.birthday = birthday;
@@ -61,5 +61,10 @@ public class Client {
 
     public int getClientAge() {
         return LocalDateTime.now().getYear() - this.birthday.getYear();
+    }
+
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.secondName + " " + this.passSeries + " " + this.passNumber;
     }
 }

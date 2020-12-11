@@ -29,6 +29,7 @@ public class CSVWorker {
 
     /**
      * Create CSV file in the transferred file path
+     *
      * @param filePath
      */
     public void writeData(String filePath) {
@@ -47,7 +48,7 @@ public class CSVWorker {
             List<String[]> data = new ArrayList<String[]>();
             data.add(HEADER);
             data.add(new String[]{"21-10-2004", "31-12-2004", "Andranik", "Grigoryan", "Male", "29-10-2000", "2018", "102030", "DigitalTVContract", "Premium"});
-            data.add(new String[]{"29-10-2000", "06-02-2001", "Harut", "Grigoryan", "Male", "06-03-2007", "1204", "405060", "PhoneContract", "500sms 12gb 1000min"});
+            data.add(new String[]{"29-10-2000", "06-02-2001", "Harut", "Grigoryan", "Male", "06-03-2007", "2018", "102030", "PhoneContract", "500sms 12gb 1000min"});
             data.add(new String[]{"30-11-2001", "04-03-2003", "Artur", "Sargsyan", "Male", "21-10-1997", "0205", "708090", "DigitalTVContract", "Standart+"});
             data.add(new String[]{"14-06-2003", "21-01-2009", "Ashot", "Kazazyan", "Male", "12-12-1976", "0103", "104070", "PhoneContract", "1000sms 12gb 2000min"});
             data.add(new String[]{"06-03-2007", "07-11-2009", "Manvel", "Hovvanisyan", "Male", "21-08-2001", "0405", "205080", "WiredInternetContract", "200"});
@@ -64,6 +65,7 @@ public class CSVWorker {
 
     /**
      * Read csv file and create new data in Contracts
+     *
      * @param filePath
      */
     public void readData(String filePath) {
@@ -95,6 +97,7 @@ public class CSVWorker {
 
     /**
      * Create from data new DigitalTVContract
+     *
      * @param data String[] witch have enough info for creating new contract
      * @throws SimilarClientsException
      */
@@ -110,6 +113,7 @@ public class CSVWorker {
 
     /**
      * Create from data new PhoneContract
+     *
      * @param data String[] witch have enough info for creating new contract
      * @throws SimilarClientsException
      */
@@ -139,6 +143,7 @@ public class CSVWorker {
 
     /**
      * Create from data new WiredInternetContract
+     *
      * @param data String[] witch have enough info for creating new contract
      * @throws SimilarClientsException
      */
@@ -153,22 +158,31 @@ public class CSVWorker {
 
     /**
      * From Sting[] find data about client and create new Client
+     *
      * @param clientData String[] witch have enough info for creating new Client
-     * @return
+     * @return the client from repo
      */
     private Client createClient(String[] clientData) throws SimilarClientsException {
-        Client client = new Client(
-                clientData[2],
-                clientData[3],
-                LocalDate.parse(clientData[5], DateTimeFormatter.ofPattern("dd-MM-yyyy")).atStartOfDay(),
-                Integer.parseInt(clientData[6]),
-                Integer.parseInt(clientData[7]),
-                clientData[4]
-        );
+        try {
+            Client client = new Client(
+                    clientData[2],
+                    clientData[3],
+                    LocalDate.parse(clientData[5], DateTimeFormatter.ofPattern("dd-MM-yyyy")).atStartOfDay(),
+                    Integer.parseInt(clientData[6]),
+                    Integer.parseInt(clientData[7]),
+                    clientData[4]
+            );
 
-        clients.addClient(client);
+            clients.addClient(client);
 
-        return client;
+            return client;
+        } catch (SimilarClientsException e) {
+            System.out.println("----------------------------------");
+            System.out.println(clients.getClientByPassData(e.getPassSeries(), e.getPassNumber()).toString() + " was founded on repo");
+            System.out.println("----------------------------------");
+        }
+
+        return clients.getClientByPassData(Integer.parseInt(clientData[6]), Integer.parseInt(clientData[7]));
     }
 
     public Contracts getContracts() {

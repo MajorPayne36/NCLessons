@@ -50,7 +50,7 @@ public class Clients {
      */
     public void addClient(Client client) throws SimilarClientsException {
         if (findClientWithPass(client.getPassSeries(), client.getPassNumber())) {
-            throw new SimilarClientsException("There is a client with same passport data");
+            throw new SimilarClientsException("There is a client with same passport data",client.getPassSeries(), client.getPassNumber());
         }
 
         client.setId(ArayUtil.getArrayValuesCount(clients) + 1);
@@ -65,8 +65,9 @@ public class Clients {
      * @return
      */
     public Client getClientById(int id) {
-        for (Client client : this.clients) {
-            if (client.getId() == id) return client;
+        int clientsCount = ArayUtil.getArrayValuesCount(clients);
+        for (int i = 0; i < clientsCount; i++) {
+            if (clients[i].getId() == id) return clients[i];
         }
         return null;
     }
@@ -79,9 +80,9 @@ public class Clients {
      * @return
      */
     public Client getClientByPassData(int passSeries, int passNumber) {
-        for (Client client : this.clients) {
-            if (client.getPassNumber() == passNumber
-                    && client.getPassSeries() == passSeries) return client;
+        int clientsCount = ArayUtil.getArrayValuesCount(clients);
+        for (int i = 0; i < clientsCount; i++) {
+            if (clients[i].getPassNumber() == passNumber && clients[i].getPassSeries() == passSeries) return clients[i];
         }
         return null;
     }
