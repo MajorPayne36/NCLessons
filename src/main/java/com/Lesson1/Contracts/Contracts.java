@@ -1,13 +1,9 @@
 package com.Lesson1.Contracts;
 
-import com.Lesson1.ArayUtil;
+import com.Lesson1.ArrayUtil.ArayUtil;
 import com.Lesson1.Clients.Clients;
 import com.Lesson1.Clients.SimilarClientsException;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Contracts {

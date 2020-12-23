@@ -1,7 +1,6 @@
-package com.Lesson1;
+package com.Lesson1.ArrayUtil;
 
 import com.Lesson1.Contracts.BasicContract;
-import com.Lesson1.Contracts.Contracts;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -56,55 +55,15 @@ public class ArayUtil {
     }
 
     /**
-     * Use Comparable to do bubble sort by Contract Number
-     */
-    public void sortBubble(BasicContract[] contracts) {
-        for (int i = 0; i < contracts.length - 1; i++) {
-            // внутренний цикл прохода
-            for (int j = contracts.length - 1; j > i; j--) {
-                if (contracts[j - 1].compareTo(contracts[j]) > 0) {
-                    swap(j - 1, j, contracts);
-//                    BasicContract tmp = contracts[j - 1];
-//                    contracts[j - 1] = contracts[j];
-//                    contracts[j] = tmp;
-                }
-            }
-        }
-    }
-
-    /**
      * Swap the elements in array
      *
      * @param i
      * @param j
      */
-    private void swap(int i, int j, BasicContract[] contracts) {
+    public static void swap(int i, int j, BasicContract[] contracts) {
         BasicContract tmp = contracts[i];
         contracts[i] = contracts[j];
         contracts[j] = tmp;
     }
-
-    /**
-     * This method do Shell's sort by entered type of Comparator
-     *
-     * @param a it's type of sort parameter
-     */
-    public void sortShell(Comparator<BasicContract> a, BasicContract[] contracts) {
-        int h = 1;
-        int arrLength = ArayUtil.getArrayValuesCount(contracts);
-        while (h * 3 < arrLength)
-            h = h * 3 + 1;
-
-        while (h >= 1) {
-            for (int i = h; i < arrLength; i++) {
-                for (int j = i; j >= h; j = j - h) {
-                    if (a.compare(contracts[j], contracts[j - h]) < 0)
-                        swap(j, j - h, contracts);
-                    else
-                        break;
-                }
-            }
-            h = h / 3;
-        }
-    }
 }
+

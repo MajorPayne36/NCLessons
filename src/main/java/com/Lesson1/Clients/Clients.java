@@ -1,6 +1,6 @@
 package com.Lesson1.Clients;
 
-import com.Lesson1.ArayUtil;
+import com.Lesson1.ArrayUtil.ArayUtil;
 
 import java.time.LocalDateTime;
 
