@@ -104,26 +104,3 @@ public class Contracts {
         }
         return null;
     }
-
-    public int getContractsCount() {
-        return ArayUtil.getArrayValuesCount(contracts);
-    }
-
-
-    /**
-     * This method return needed Contracts as array
-     *
-     * @param p Predicate for find Contracts
-     * @return return BasicContract[] array
-     */
-    public Contracts filterContracts(Predicate<BasicContract> p) throws SimilarClientsException {
-        Contracts c = new Contracts(this.clients);
-        for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts); i++) {
-            if (p.test(contracts[i])) {
-                c.addContract(contracts[i],contracts[i].getContractType());
-            }
-        }
-        return c;
-    }
-
-}
