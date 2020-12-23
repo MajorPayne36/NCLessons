@@ -1,0 +1,7 @@
+"StartDate","EndDate","FirstName","LastName","Gender","Birthday","PassSeries","PassNumber","ContractType","ContractInfo"
+"21-10-2004","31-12-2004","Andranik","Grigoryan","Male","29-10-2000","2018","102030","DigitalTVContract","Premium"
+"29-10-2000","06-02-2001","Harut","Grigoryan","Male","06-03-2007","2018","102030","PhoneContract","500sms 12gb 1000min"
+"30-11-2001","04-03-2003","Artur","Sargsyan","Male","21-10-1997","0205","708090","DigitalTVContract","Standart+"
+"14-06-2003","21-01-2009","Ashot","Kazazyan","Male","12-12-1976","0103","104070","PhoneContract","1000sms 12gb 2000min"
+"06-03-2007","07-11-2009","Manvel","Hovvanisyan","Male","21-08-2001","0405","205080","WiredInternetContract","200"
+"14-07-2010","15-10-2011","Tigran","Tovmasyan","Male","18-05-1995","0780","306090","WiredInternetContract","100"

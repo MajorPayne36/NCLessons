@@ -3,19 +3,21 @@ package com.Lesson1.Contracts;
 
 import com.Lesson1.Clients.Client;
 
+import java.time.LocalDateTime;
+
 public class DigitalTVContract extends BasicContract {
 
-    private TVPackages tvPackage;
+    private String tvPackage;
 
 
 
-    public DigitalTVContract(Client client, TVPackages tvPackage) {
-        super(client);
+    public DigitalTVContract(String tvPackage, Client client, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        super(client, startDateTime, endDateTime);
         this.tvPackage = tvPackage;
 
     }
 
-    public TVPackages getTvPackage() {
+    public String getTvPackage() {
         return tvPackage;
     }
 }

@@ -8,13 +8,13 @@ public abstract class BasicContract implements Comparable<BasicContract> {
     private final LocalDateTime startDateTime;
     private final LocalDateTime endDateTime;
     private final Client client;
-    private Integer contractNumber;
+    private int contractNumber;
 
 
-    protected BasicContract( Client client) {
+    protected BasicContract( Client client, LocalDateTime startDateTime, LocalDateTime endDateTime) {
         this.client = client;
-        this.startDateTime = LocalDateTime.now();
-        this.endDateTime = this.startDateTime.plusYears(1);
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
     }
 
     public void setContractNumber(int contractNumber) {
