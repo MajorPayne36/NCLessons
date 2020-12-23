@@ -128,7 +128,7 @@ public class Contracts {
                 }
             }
         }
-    }
+    }   
 
     public void sortBubble (Comparator c){
         new BubbleSorter().sort(c, this);
