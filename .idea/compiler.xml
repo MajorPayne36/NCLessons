@@ -9,5 +9,8 @@
         <module name="NCLessons" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="NCLessons" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
