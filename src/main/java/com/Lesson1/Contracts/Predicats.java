@@ -10,7 +10,7 @@ public class Predicats {
      * @return
      */
     public static Predicate<BasicContract> isDigitalTVContract() {
-        return p -> p.getClass().getSimpleName().equals(ContractTypes.digitalTV);
+        return p -> p.getClass().getSimpleName().equals("DigitalTVContract");
     }
 
     /**
@@ -19,7 +19,7 @@ public class Predicats {
      * @return
      */
     public static Predicate<BasicContract> isPhoneContract() {
-        return p -> p.getClass().getSimpleName().equals(ContractTypes.phoneContract);
+        return p -> p.getClass().getSimpleName().equals("PhoneContract");
     }
 
     /**
@@ -28,7 +28,7 @@ public class Predicats {
      * @return
      */
     public static Predicate<BasicContract> isWiredInternetContract() {
-        return p -> p.getClass().getSimpleName().equals(ContractTypes.wiredInternetContract);
+        return p -> p.getClass().getSimpleName().equals("WiredInternetContract");
     }
 
     /**

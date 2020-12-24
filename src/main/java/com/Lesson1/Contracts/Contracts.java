@@ -25,34 +25,6 @@ public class Contracts {
         return contracts;
     }
 
-    /**
-     * This method find Contract by his Number and delete him
-     *
-     * @param number The founded Number
-     * @throws ContractException
-     */
-    public void deleteContractByNumber(int number) throws ContractException {
-        if (!hasContractWithNumber(number)) throw new ContractException();
-        int i = getContractId(number);
-        do contracts[i] = contracts[++i];
-        while (contracts[i] != null);
-
-    }
-
-    /**
-     * Find Contract by his number and return his id in array
-     *
-     * @param number Number of Contract
-     * @return Id in array
-     * @throws ContractException
-     */
-    public int getContractId(int number) throws ContractException {
-        for (int i = 0; i < getContractsCount() - 1; i++) {
-            if (contracts[i].getContractNumber() == number) return i;
-        }
-        throw new ContractException();
-    }
-
     public void addContract(BasicContract contract) throws SimilarClientsException {
 
         // If didn't find the same client, program add new client to others

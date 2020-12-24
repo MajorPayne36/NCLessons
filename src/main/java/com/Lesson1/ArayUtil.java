@@ -3,6 +3,8 @@ package com.Lesson1;
 import com.Lesson1.Contracts.BasicContract;
 import com.Lesson1.Contracts.Contracts;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -69,3 +71,21 @@ public class ArayUtil {
     }
 
 }
+
+
+ class TestReflection {
+    public static void main(String[] args) {
+        try {
+            Class<?> c = Class.forName("java.util.ArrayList");
+            Method[] methods = c.getMethods();
+            Constructor[] ctors = c.getConstructors();
+            for(Method method : methods)
+                System.out.println(method.toString());
+            for(Constructor ctor : ctors)
+                System.out.println(ctor.toString());
+        }catch(ClassNotFoundException e)
+        {System.out.println("No such class: " + e);}
+    }
+}
+
+
