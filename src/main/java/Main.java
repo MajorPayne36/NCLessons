@@ -12,7 +12,7 @@ public class Main {
         worker.readData("./result.csv");
         System.out.print(worker.getContracts().toString());
 
-        System.out.println("---------------------------------------" +
+        System.out.println("\n***************************************************" +
                 "\nVALIDATION RESULTS\n");
 
         ArrayList<ValidatorResult> validationResults = new Validate(worker.getContracts()).validateAllContracts();
@@ -20,6 +20,7 @@ public class Main {
             if (vr.getStatus().equals(ValidationStatus.ERROR))
                 System.out.println(vr);
         });
+        System.out.println("\n***************************************************");
     }
 }
 
