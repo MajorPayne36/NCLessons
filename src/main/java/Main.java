@@ -1,5 +1,4 @@
 import com.Lesson1.CSVWork.CSVWorker;
-import com.Lesson1.validators.Validate;
 import com.Lesson1.validators.ValidationStatus;
 import com.Lesson1.validators.ValidatorResult;
 
@@ -15,7 +14,7 @@ public class Main {
         System.out.println("\n***************************************************" +
                 "\nVALIDATION RESULTS\n");
 
-        ArrayList<ValidatorResult> validationResults = new Validate(worker.getContracts()).validateAllContracts();
+        ArrayList<ValidatorResult> validationResults = worker.validateAllContracts();
         validationResults.forEach(vr->{
             if (vr.getStatus().equals(ValidationStatus.ERROR))
                 System.out.println(vr);

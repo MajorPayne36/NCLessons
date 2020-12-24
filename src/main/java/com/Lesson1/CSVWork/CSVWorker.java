@@ -1,7 +1,12 @@
 package com.Lesson1.CSVWork;
 
+import com.Lesson1.ArayUtil;
 import com.Lesson1.Clients.*;
 import com.Lesson1.Contracts.*;
+import com.Lesson1.validators.ValidateClientAge;
+import com.Lesson1.validators.ValidatePassNumber;
+import com.Lesson1.validators.ValidatePassSeries;
+import com.Lesson1.validators.ValidatorResult;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
@@ -187,5 +192,24 @@ public class CSVWorker {
 
     public Contracts getContracts() {
         return contracts;
+    }
+
+    /**
+     * validate all contracts
+     * @return all validation results
+     */
+    public ArrayList<ValidatorResult> validateAllContracts() {
+        ArrayList<ValidatorResult> results = new ArrayList<>();
+
+        ValidateClientAge clientAge = new ValidateClientAge();
+        ValidatePassNumber passNumber = new ValidatePassNumber();
+        ValidatePassSeries passSeries = new ValidatePassSeries();
+
+        for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts.getContracts()); i++) {
+            results.add(clientAge.validate(contracts.getContracts()[i]));
+            results.add(passNumber.validate(contracts.getContracts()[i]));
+            results.add(passSeries.validate(contracts.getContracts()[i]));
+        }
+        return results;
     }
 }
