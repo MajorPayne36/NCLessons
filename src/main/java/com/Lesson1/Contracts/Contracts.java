@@ -3,6 +3,9 @@ package com.Lesson1.Contracts;
 import com.Lesson1.ArayUtil;
 import com.Lesson1.Clients.Clients;
 import com.Lesson1.Clients.SimilarClientsException;
+import com.Lesson1.Sorters.BubbleSorter;
+import com.Lesson1.Sorters.ShellSorter;
+import com.Lesson1.di.Annotations.AutoInjectable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,6 +14,12 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Contracts {
+
+    @AutoInjectable(clazz = BubbleSorter.class)
+    BubbleSorter bubbleSorter;
+
+    @AutoInjectable(clazz = ShellSorter.class)
+    ShellSorter shellSorter;
 
     private int lastContractNumber = 1;
     private final Clients clients;
