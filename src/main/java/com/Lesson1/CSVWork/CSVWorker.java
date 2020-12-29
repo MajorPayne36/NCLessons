@@ -3,6 +3,8 @@ package com.Lesson1.CSVWork;
 import com.Lesson1.ArayUtil;
 import com.Lesson1.Clients.*;
 import com.Lesson1.Contracts.*;
+import com.Lesson1.Interfaces.IValidator;
+import com.Lesson1.di.Annotations.AutoInjectable;
 import com.Lesson1.validators.ValidateClientAge;
 import com.Lesson1.validators.ValidatePassNumber;
 import com.Lesson1.validators.ValidatePassSeries;
@@ -26,6 +28,8 @@ public class CSVWorker {
 
     private Clients clients = new Clients();
     private Contracts contracts = new Contracts(clients);
+    @AutoInjectable(clazz = IValidator.class)
+    private List<IValidator> validators;
 
     /**
      * Save CSV file headers
@@ -190,26 +194,25 @@ public class CSVWorker {
         return clients.getClientByPassData(Integer.parseInt(clientData[6]), Integer.parseInt(clientData[7]));
     }
 
+    /**
+     * @return contracts
+     */
     public Contracts getContracts() {
         return contracts;
     }
 
     /**
      * validate all contracts
+     *
      * @return all validation results
      */
     public ArrayList<ValidatorResult> validateAllContracts() {
         ArrayList<ValidatorResult> results = new ArrayList<>();
 
-        ValidateClientAge clientAge = new ValidateClientAge();
-        ValidatePassNumber passNumber = new ValidatePassNumber();
-        ValidatePassSeries passSeries = new ValidatePassSeries();
+        for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts.getContracts()); i++)
+            for (IValidator validator : validators)
+                results.add(validator.validate(contracts.getContracts()[i]));
 
-        for (int i = 0; i < ArayUtil.getArrayValuesCount(contracts.getContracts()); i++) {
-            results.add(clientAge.validate(contracts.getContracts()[i]));
-            results.add(passNumber.validate(contracts.getContracts()[i]));
-            results.add(passSeries.validate(contracts.getContracts()[i]));
-        }
         return results;
     }
 }

@@ -1,8 +1,9 @@
 package com.Lesson1.validators;
 
 import com.Lesson1.Contracts.BasicContract;
+import com.Lesson1.Interfaces.IValidator;
 
-public class ValidateClientAge implements IValidator{
+public class ValidateClientAge implements IValidator {
     /**
      * Validate contract's client pass series
      * @param contract which need in validation
