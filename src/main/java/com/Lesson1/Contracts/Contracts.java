@@ -97,9 +97,9 @@ public class Contracts {
                     sb.append(((DigitalTVContract)contracts[i]).getTvPackage());
                     break;
                 case ("PhoneContract"):
-                    sb.append(((PhoneContract)contracts[i]).getInternetCount()).append(" gb");
-                    sb.append(((PhoneContract)contracts[i]).getMinuteCount()).append(" min");
-                    sb.append(((PhoneContract)contracts[i]).getSmsCount()).append(" sms");
+                    sb.append(((PhoneContract)contracts[i]).getInternetCount()).append(" gb, ");
+                    sb.append(((PhoneContract)contracts[i]).getMinuteCount()).append(" min, ");
+                    sb.append(((PhoneContract)contracts[i]).getSmsCount()).append(" sms.");
                     break;
                 case ("WiredInternetContract"):
                     sb.append(((WiredInternetContract)contracts[i]).getMaxSpeed());
