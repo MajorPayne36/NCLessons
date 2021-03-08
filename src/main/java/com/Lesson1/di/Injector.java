@@ -1,5 +1,6 @@
 package com.Lesson1.di;
 
+import com.Lesson1.Exceptions.DIException;
 import com.google.common.reflect.ClassPath;
 
 import com.Lesson1.di.Annotations.AutoInjectable;
@@ -22,22 +23,27 @@ public class Injector {
      * @throws InstantiationException
      * @throws IOException
      */
-    public <T> T inject(T object) throws IllegalAccessException, InstantiationException, IOException {
-        ClassPath classPath = ClassPath.from(Thread.currentThread().getContextClassLoader());
-        for (Field field : object.getClass().getDeclaredFields()) {
+    public <T> T inject(T object) throws DIException {
+        try{
+            ClassPath classPath = ClassPath.from(Thread.currentThread().getContextClassLoader());
+            for (Field field : object.getClass().getDeclaredFields()) {
 
-            if (field.isAnnotationPresent(AutoInjectable.class)) {
-                field.setAccessible(true);
-                List allInstances = findPackages(field, classPath);
-                if (Collection.class.isAssignableFrom(field.getType())) {
-                    field.set(object, allInstances);
-                } else if (allInstances.size() == 1)
-                    field.set(object, allInstances);
-                else
-                    throw new InstantiationException("Anything went wrong on injection: " + field.getType().getName());
+                if (field.isAnnotationPresent(AutoInjectable.class)) {
+                    field.setAccessible(true);
+                    List allInstances = findPackages(field, classPath);
+                    if (Collection.class.isAssignableFrom(field.getType())) {
+                        field.set(object, allInstances);
+                    } else if (allInstances.size() == 1)
+                        field.set(object, allInstances);
+                    else
+                        throw new DIException("Anything went wrong on injection: " + field.getType().getName());
+                }
             }
+            return object;
+        } catch (IllegalAccessException | IOException ex) {
+            throw new DIException(ex);
         }
-        return object;
+
     }
 
     /**
@@ -48,19 +54,23 @@ public class Injector {
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
-    private List findPackages(Field field, ClassPath classPath) throws IllegalAccessException, InstantiationException {
-        List<Object> classInstances = new ArrayList<>();
-        for (String pkg : Injector.class.getAnnotation(Configuration.class).packages()) {
-            Set<ClassPath.ClassInfo> allClasses = classPath.getTopLevelClassesRecursive(pkg);
-            Class clazz = field.getAnnotation(AutoInjectable.class).clazz();
+    private List findPackages(Field field, ClassPath classPath) throws DIException {
+        try {
+            List<Object> classInstances = new ArrayList<>();
+            for (String pkg : Injector.class.getAnnotation(Configuration.class).packages()) {
+                Set<ClassPath.ClassInfo> allClasses = classPath.getTopLevelClassesRecursive(pkg);
+                Class clazz = field.getAnnotation(AutoInjectable.class).clazz();
 
-            for (ClassPath.ClassInfo ci : allClasses) {
-                if (clazz.isAssignableFrom(ci.load()) && !ci.load().isInterface()) {
-                    classInstances.add(ci.load().newInstance());
+                for (ClassPath.ClassInfo ci : allClasses) {
+                    if (clazz.isAssignableFrom(ci.load()) && !ci.load().isInterface()) {
+                        classInstances.add(ci.load().newInstance());
+                    }
                 }
             }
+            return classInstances;
+        } catch (IllegalAccessException|InstantiationException ex){
+            throw new DIException(ex);
         }
-        return classInstances;
     }
 }
 
