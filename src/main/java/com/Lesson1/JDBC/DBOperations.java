@@ -246,7 +246,7 @@ public class DBOperations {
         }
         return contracts;
     }
-    
+
     /**
      * This method create a client table if it doesn't exist
      */
