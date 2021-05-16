@@ -2,13 +2,16 @@ package com.Lesson1.Contracts;
 
 import com.Lesson1.Clients.Client;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import java.time.LocalDateTime;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PhoneContract extends BasicContract {
 
-    private final int smsCount;
-    private final int minuteCount;
-    private final int internetCount;
+    private int smsCount;
+    private int minuteCount;
+    private int internetCount;
 
 
     public PhoneContract(int smsCount, int minuteCount, int internetCount, Client client, LocalDateTime startDateTime, LocalDateTime endDateTime) {
@@ -18,6 +21,7 @@ public class PhoneContract extends BasicContract {
         this.smsCount = smsCount;
     }
 
+    PhoneContract(){}
     public int getInternetCount() {
         return internetCount;
     }

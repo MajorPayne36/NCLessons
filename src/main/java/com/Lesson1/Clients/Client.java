@@ -1,16 +1,25 @@
 package com.Lesson1.Clients;
 
+import com.Lesson1.JAXB.LocalDateParser;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
 
     private int id;
-    private final String firstName;
-    private final String secondName;
-    private final LocalDateTime birthday;
-    private final int passSeries;
-    private final int passNumber;
-    private final String gender;
+    private String firstName;
+    private String secondName;
+
+    @XmlJavaTypeAdapter(LocalDateParser.class)
+    private LocalDateTime birthday;
+    private int passSeries;
+    private int passNumber;
+    private String gender;
 
     public Client(
             String firstName,
@@ -26,6 +35,8 @@ public class Client {
         this.passNumber = passNumber;
         this.gender = gender;
     }
+
+    Client(){}
 
     public int getId() {
         return id;

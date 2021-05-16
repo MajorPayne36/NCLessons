@@ -7,22 +7,32 @@ import com.Lesson1.Sorters.BubbleSorter;
 import com.Lesson1.Sorters.ShellSorter;
 import com.Lesson1.di.Annotations.AutoInjectable;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement (name = "repository")
 public class Contracts {
 
+    @XmlTransient
     @AutoInjectable(clazz = BubbleSorter.class)
     BubbleSorter bubbleSorter;
 
+    @XmlTransient
     @AutoInjectable(clazz = ShellSorter.class)
     ShellSorter shellSorter;
 
+    @XmlTransient
     private int lastContractNumber = 1;
-    private final Clients clients;
+
+    @XmlTransient
+    private Clients clients;
+
+    @XmlElementWrapper(name="contracts11111")
     private BasicContract[] contracts = new BasicContract[2];
 
 
@@ -112,4 +122,6 @@ public class Contracts {
         }
         return sb.toString();
     }
+
+    Contracts(){}
 }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repository>
+    <contracts11111>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="digitalTVContract">
+            <startDateTime>2004-10-21T00:00</startDateTime>
+            <startDateTime>2004-12-31T00:00</startDateTime>
+            <client>
+                <id>1</id>
+                <firstName>Andranik</firstName>
+                <secondName>Grigoryan</secondName>
+                <birthday>2000-10-29T00:00</birthday>
+                <passSeries>2018</passSeries>
+                <passNumber>102030</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>1</startDateTime>
+            <tvPackage>Premium</tvPackage>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="phoneContract">
+            <startDateTime>2000-10-29T00:00</startDateTime>
+            <startDateTime>2001-02-06T00:00</startDateTime>
+            <client>
+                <id>1</id>
+                <firstName>Andranik</firstName>
+                <secondName>Grigoryan</secondName>
+                <birthday>2000-10-29T00:00</birthday>
+                <passSeries>2018</passSeries>
+                <passNumber>102030</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>2</startDateTime>
+            <smsCount>500</smsCount>
+            <minuteCount>1000</minuteCount>
+            <internetCount>12</internetCount>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="digitalTVContract">
+            <startDateTime>2001-11-30T00:00</startDateTime>
+            <startDateTime>2003-03-04T00:00</startDateTime>
+            <client>
+                <id>2</id>
+                <firstName>Artur</firstName>
+                <secondName>Sargsyan</secondName>
+                <birthday>1997-10-21T00:00</birthday>
+                <passSeries>205</passSeries>
+                <passNumber>708090</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>3</startDateTime>
+            <tvPackage>Standart+</tvPackage>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="phoneContract">
+            <startDateTime>2003-06-14T00:00</startDateTime>
+            <startDateTime>2009-01-21T00:00</startDateTime>
+            <client>
+                <id>3</id>
+                <firstName>Ashot</firstName>
+                <secondName>Kazazyan</secondName>
+                <birthday>1976-12-12T00:00</birthday>
+                <passSeries>103</passSeries>
+                <passNumber>104070</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>4</startDateTime>
+            <smsCount>1000</smsCount>
+            <minuteCount>2000</minuteCount>
+            <internetCount>12</internetCount>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="wiredInternetContract">
+            <startDateTime>2007-03-06T00:00</startDateTime>
+            <startDateTime>2009-11-07T00:00</startDateTime>
+            <client>
+                <id>4</id>
+                <firstName>Manvel</firstName>
+                <secondName>Hovvanisyan</secondName>
+                <birthday>2001-08-21T00:00</birthday>
+                <passSeries>405</passSeries>
+                <passNumber>205080</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>5</startDateTime>
+            <maxSpeed>200</maxSpeed>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="wiredInternetContract">
+            <startDateTime>2010-07-14T00:00</startDateTime>
+            <startDateTime>2011-10-15T00:00</startDateTime>
+            <client>
+                <id>5</id>
+                <firstName>Tigran</firstName>
+                <secondName>Tovmasyan</secondName>
+                <birthday>1995-05-18T00:00</birthday>
+                <passSeries>780</passSeries>
+                <passNumber>306090</passNumber>
+                <gender>Male</gender>
+            </client>
+            <startDateTime>6</startDateTime>
+            <maxSpeed>100</maxSpeed>
+        </contracts>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+    </contracts11111>
+</repository>
