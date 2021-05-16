@@ -16,13 +16,13 @@ public abstract class BasicContract implements Comparable<BasicContract> {
     private LocalDateTime startDateTime;
 
     @XmlJavaTypeAdapter(value = LocalDateParser.class)
-    @XmlElement(name = "startDateTime")
+    @XmlElement(name = "endDateTime")
     private LocalDateTime endDateTime;
 
     @XmlElement(name = "client")
     private Client client;
 
-    @XmlElement(name = "startDateTime")
+    @XmlElement(name = "contractNumber")
     private int contractNumber;
 
     BasicContract(){}

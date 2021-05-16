@@ -3,7 +3,7 @@
     <contracts11111>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="digitalTVContract">
             <startDateTime>2004-10-21T00:00</startDateTime>
-            <startDateTime>2004-12-31T00:00</startDateTime>
+            <endDateTime>2004-12-31T00:00</endDateTime>
             <client>
                 <id>1</id>
                 <firstName>Andranik</firstName>
@@ -13,12 +13,12 @@
                 <passNumber>102030</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>1</startDateTime>
+            <contractNumber>1</contractNumber>
             <tvPackage>Premium</tvPackage>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="phoneContract">
             <startDateTime>2000-10-29T00:00</startDateTime>
-            <startDateTime>2001-02-06T00:00</startDateTime>
+            <endDateTime>2001-02-06T00:00</endDateTime>
             <client>
                 <id>1</id>
                 <firstName>Andranik</firstName>
@@ -28,14 +28,14 @@
                 <passNumber>102030</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>2</startDateTime>
+            <contractNumber>2</contractNumber>
             <smsCount>500</smsCount>
             <minuteCount>1000</minuteCount>
             <internetCount>12</internetCount>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="digitalTVContract">
             <startDateTime>2001-11-30T00:00</startDateTime>
-            <startDateTime>2003-03-04T00:00</startDateTime>
+            <endDateTime>2003-03-04T00:00</endDateTime>
             <client>
                 <id>2</id>
                 <firstName>Artur</firstName>
@@ -45,12 +45,12 @@
                 <passNumber>708090</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>3</startDateTime>
+            <contractNumber>3</contractNumber>
             <tvPackage>Standart+</tvPackage>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="phoneContract">
             <startDateTime>2003-06-14T00:00</startDateTime>
-            <startDateTime>2009-01-21T00:00</startDateTime>
+            <endDateTime>2009-01-21T00:00</endDateTime>
             <client>
                 <id>3</id>
                 <firstName>Ashot</firstName>
@@ -60,14 +60,14 @@
                 <passNumber>104070</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>4</startDateTime>
+            <contractNumber>4</contractNumber>
             <smsCount>1000</smsCount>
             <minuteCount>2000</minuteCount>
             <internetCount>12</internetCount>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="wiredInternetContract">
             <startDateTime>2007-03-06T00:00</startDateTime>
-            <startDateTime>2009-11-07T00:00</startDateTime>
+            <endDateTime>2009-11-07T00:00</endDateTime>
             <client>
                 <id>4</id>
                 <firstName>Manvel</firstName>
@@ -77,12 +77,12 @@
                 <passNumber>205080</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>5</startDateTime>
+            <contractNumber>5</contractNumber>
             <maxSpeed>200</maxSpeed>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="wiredInternetContract">
             <startDateTime>2010-07-14T00:00</startDateTime>
-            <startDateTime>2011-10-15T00:00</startDateTime>
+            <endDateTime>2011-10-15T00:00</endDateTime>
             <client>
                 <id>5</id>
                 <firstName>Tigran</firstName>
@@ -92,7 +92,7 @@
                 <passNumber>306090</passNumber>
                 <gender>Male</gender>
             </client>
-            <startDateTime>6</startDateTime>
+            <contractNumber>6</contractNumber>
             <maxSpeed>100</maxSpeed>
         </contracts>
         <contracts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>

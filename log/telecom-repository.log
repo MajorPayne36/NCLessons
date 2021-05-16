@@ -1,8 +1,8 @@
-2021-05-16 16:38:24,549 INFO Main [main] XML CONVERTING RESULTS
-2021-05-16 16:38:24,564 INFO Main [main] 1 Andranik Grigoryan 2018 102030 2004-12-31T00:00 null DigitalTVContract Premium
-1 Andranik Grigoryan 2018 102030 2001-02-06T00:00 null PhoneContract 12 gb, 1000 min, 500 sms.
-2 Artur Sargsyan 205 708090 2003-03-04T00:00 null DigitalTVContract Standart+
-3 Ashot Kazazyan 103 104070 2009-01-21T00:00 null PhoneContract 12 gb, 2000 min, 1000 sms.
-4 Manvel Hovvanisyan 405 205080 2009-11-07T00:00 null WiredInternetContract 200
-5 Tigran Tovmasyan 780 306090 2011-10-15T00:00 null WiredInternetContract 100
+2021-05-16 16:45:09,725 INFO Main [main] XML CONVERTING RESULTS
+2021-05-16 16:45:09,725 INFO Main [main] 1 Andranik Grigoryan 2018 102030 2004-10-21T00:00 2004-12-31T00:00 DigitalTVContract Premium
+1 Andranik Grigoryan 2018 102030 2000-10-29T00:00 2001-02-06T00:00 PhoneContract 12 gb, 1000 min, 500 sms.
+2 Artur Sargsyan 205 708090 2001-11-30T00:00 2003-03-04T00:00 DigitalTVContract Standart+
+3 Ashot Kazazyan 103 104070 2003-06-14T00:00 2009-01-21T00:00 PhoneContract 12 gb, 2000 min, 1000 sms.
+4 Manvel Hovvanisyan 405 205080 2007-03-06T00:00 2009-11-07T00:00 WiredInternetContract 200
+5 Tigran Tovmasyan 780 306090 2010-07-14T00:00 2011-10-15T00:00 WiredInternetContract 100
 
