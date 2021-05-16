@@ -8,21 +8,19 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class XmlWorker {
     public static Contracts fromXmlToObject(String filePath) {
         try {
             // создаем объект JAXBContext - точку входа для JAXB
-            JAXBContext jaxbContext = JAXBContext.newInstance(BasicContract.class,
-                    PhoneContract.class,
-                    DigitalTVContract.class,
-                    WiredInternetContract.class,
-                    Client.class,
+            JAXBContext jaxbContext = JAXBContext.newInstance(
                     Contracts.class);
             Unmarshaller un = jaxbContext.createUnmarshaller();
 
-            return (Contracts) un.unmarshal(new File(filePath));
-        } catch (JAXBException e) {
+            return (Contracts) un.unmarshal(new FileReader(filePath));
+        } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;

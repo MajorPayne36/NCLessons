@@ -25,7 +25,9 @@ public class Main {
         }
         else {
             LOGGER.info("XML CONVERTING RESULTS");
-            System.out.print(worker.getContracts().toString());
+            LOGGER.info(repo.toString());
+            System.out.println("XML CONVERTING RESULTS");
+            System.out.println(repo.toString());
         }
     }
 }
